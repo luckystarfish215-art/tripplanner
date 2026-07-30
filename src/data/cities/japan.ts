@@ -1,0 +1,7 @@
+import type { City } from "@/types/destination";
+
+export const japanCities: City[] = [
+  { id: "tokyo", name: "Tokyo", country: "Japan", countryCode: "JP", coordinates: { latitude: 35.6762, longitude: 139.6503 }, tags: ["metropolis", "design", "nightlife"], seasons: ["spring", "autumn"], idealSeasons: ["spring", "autumn"], experiences: ["food", "culture", "nightlife", "anime", "shopping", "photography"], foodCategories: ["sushi", "ramen", "izakaya"], averageDailyBudget: 300, transportationScore: 98, photographyScore: 94 },
+  { id: "osaka", name: "Osaka", country: "Japan", countryCode: "JP", coordinates: { latitude: 34.6937, longitude: 135.5023 }, tags: ["food", "energy", "canals"], seasons: ["spring", "autumn"], idealSeasons: ["spring", "autumn"], experiences: ["food", "nightlife", "culture", "shopping", "photography"], foodCategories: ["street food", "okonomiyaki", "takoyaki"], averageDailyBudget: 240, transportationScore: 94, photographyScore: 86 },
+  { id: "kyoto", name: "Kyoto", country: "Japan", countryCode: "JP", coordinates: { latitude: 35.0116, longitude: 135.7681 }, tags: ["temples", "tradition", "gardens"], seasons: ["spring", "autumn"], idealSeasons: ["spring", "autumn"], experiences: ["culture", "food", "nature", "hiking", "relaxing", "photography"], foodCategories: ["kaiseki", "matcha", "tofu"], averageDailyBudget: 270, transportationScore: 82, photographyScore: 99 },
+];
