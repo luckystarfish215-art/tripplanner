@@ -1,0 +1,1 @@
+export function TripHero({ eyebrow, subtitle, title }: { eyebrow: string; subtitle: string; title: string }) { return <section className="hero" id="top"><p className="hero-eyebrow"><span />{eyebrow}</p><h1>{title}</h1><p className="hero-copy">{subtitle}</p></section>; }
