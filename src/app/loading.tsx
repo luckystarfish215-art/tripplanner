@@ -1,0 +1,3 @@
+export default function Loading() {
+  return <main aria-busy="true" aria-live="polite" className="min-h-screen px-4 py-8 sm:px-6"><span className="sr-only">Loading TripsGen</span><div className="mx-auto max-w-3xl animate-pulse"><div className="mx-auto h-3 w-32 rounded-full bg-white/10" /><div className="mx-auto mt-5 h-12 max-w-lg rounded-2xl bg-white/10" /><div className="mt-10 rounded-3xl border border-white/10 bg-white/[.04] p-5 sm:p-7"><div className="h-5 w-36 rounded bg-white/10" /><div className="mt-4 h-12 rounded-xl bg-white/10" /><div className="mt-6 grid gap-3 sm:grid-cols-2"><div className="h-24 rounded-2xl bg-white/10" /><div className="h-24 rounded-2xl bg-white/10" /></div><div className="mt-6 h-14 rounded-2xl bg-pink-300/15" /></div></div></main>;
+}
