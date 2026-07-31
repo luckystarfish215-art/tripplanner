@@ -21,6 +21,8 @@ export const generateShareId = (): string => {
   return toBase64Url(bytes);
 };
 
+export const buildShareUrl = (origin: string, id: string): string => new URL(`/trip/${id}`, origin).toString();
+
 export const serializeTrip = (trip: Trip): string => JSON.stringify({ version: shareVersion, trip } satisfies Omit<ShareRecord, "id">);
 export const deserializeTrip = (value: string): Trip | undefined => { try { const parsed = JSON.parse(value) as Omit<ShareRecord, "id">; return parsed.version === shareVersion && parsed.trip?.id ? parsed.trip : undefined; } catch { return undefined; } };
 
