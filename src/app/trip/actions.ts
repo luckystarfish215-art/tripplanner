@@ -28,9 +28,10 @@ export async function generateTrip(_previousState: TripGenerationState, formData
   const selectedExperienceIds = selectedValues(formData, "experiences");
   const selectedExperiences = experiences.filter((item) => selectedExperienceIds.includes(item.id)).map((item) => item.category);
   if (!city || !travelStyle || !companion || !budget || !startDate || !endDate) return invalidState("Please complete every trip detail.");
-  const shareTrip: Trip = { id: `${city.id}-${startDate}`, destination: { cityId: city.id, countryCode: city.countryCode }, startDate, endDate, experienceCategories: selectedExperiences, travelStyleId: travelStyle.id, companionId: companion.id, budgetId: budget.id };
+  const shareId = generateShareId();
+  const shareTrip: Trip = { id: shareId, destination: { cityId: city.id, countryCode: city.countryCode }, startDate, endDate, experienceCategories: selectedExperiences, travelStyleId: travelStyle.id, companionId: companion.id, budgetId: budget.id };
   const recommendation = createRecommendation({ destination: shareTrip.destination, dateRange: { startDate, endDate }, experiences: selectedExperiences, travelStyleId: travelStyle.id, companionId: companion.id, budgetId: budget.id, preferences: {}, constraints: [] });
   const prompt = buildPrompt({ destination: shareTrip.destination, tripDates: { startDate, endDate }, experiences: selectedExperiences, travelStyleId: travelStyle.id, companionId: companion.id, budgetId: budget.id, constraints: [], recommendations: recommendation });
   await createAIGateway({ primaryProvider: createOpenAIProvider("TripsGen mock response") }).generate(prompt.systemPrompt, prompt.userPrompt);
-  return { trip: { cityName: city.name, countryName: city.country, dates: { startDate, endDate }, recommendation, shareId: generateShareId(), shareTrip, travelStyle: travelStyle.label } };
+  return { trip: { cityName: city.name, countryName: city.country, dates: { startDate, endDate }, recommendation, shareId, shareTrip, travelStyle: travelStyle.label } };
 }
